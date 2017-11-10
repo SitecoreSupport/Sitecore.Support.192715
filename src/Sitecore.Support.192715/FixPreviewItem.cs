@@ -71,7 +71,7 @@ namespace Sitecore.Support.Shell.Framework.Commands
             string cookieKey = previewSiteContext.GetCookieKey("sc_date");
             WebUtil.SetCookieValue(cookieKey, string.Empty);
 
-            // Fix bug xxx : Backup and restore virtual user when preview an item
+            // Fix bug 192715 : Backup and restore virtual user when preview an item
             if (Context.User.Profile.ProfileUser.RuntimeSettings.IsVirtual)
             {
                 BackupAndRestoreVirtualUser(previewSiteContext);
@@ -95,7 +95,7 @@ namespace Sitecore.Support.Shell.Framework.Commands
             SheerResponse.Eval("window.open('" + urlString + "', '_blank');");
         }
 
-        // Fix bug xxx: Backup and Restore virtual user
+        // Fix bug 192715: Backup and Restore virtual user
         private void BackupAndRestoreVirtualUser(SiteContext previewSiteContext)
         {
             var virtualUser = Context.User;
